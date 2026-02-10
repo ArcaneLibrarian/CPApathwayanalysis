@@ -1,0 +1,17 @@
+# Column matching rules for survey inputs.
+# Each string is treated as an exact name first, then as a case-insensitive regex fallback.
+stance_q6: '(?i)^(q6|.*overall perception.*like.*dislike.*)$'
+stance_reason_q50: '(?i)^(q50|.*please explain.*reason.*)$'
+awareness: '(?i)^(q31|q53|.*aware.*alternative pathway.*)$'
+cpa_likelihood: '(?i)^(q29|.*likely.*pursue a cpa license.*)$'
+grad_likelihood: '(?i)^(q35|.*likely.*pursue a graduate degree.*)$'
+segments:
+  - '(?i)^(q27|.*student.*status.*)$'
+  - '(?i)^(q28|.*currently working in accounting.*)$'
+  - '(?i)^(q57|.*hours.*work.*)$'
+  - '(?i)^(q58|.*public accounting firm.*)$'
+  - '(?i)^(q59|.*employer format.*online.*in-person.*)$'
+  - '(?i)^(q60|.*age.*)$'
+  - '(?i)^(awareness|q31|q53|.*aware.*)$'
+  - '(?i)^(cpa_likelihood|q29|.*pursue a cpa license.*)$'
+  - '(?i)^(grad_likelihood|q35|.*graduate degree.*)$'

@@ -1,0 +1,36 @@
+name: Analyze CPA Pathway Survey
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run analysis
+        run: >
+          python -m src.main
+          --config configs/columns.yml
+          --input "data/Alternative CPA Pathways Survey_December 31, 2025_09.45.csv"
+          --out outputs/
+
+      - name: Upload outputs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: analysis-outputs
+          path: outputs/
